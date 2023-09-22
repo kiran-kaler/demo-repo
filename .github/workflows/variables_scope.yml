@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  MY_WORKFLOW_VARIABLE: "This is a workflow-level variable"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,5 +16,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Print Hello
-        run: echo "Hello, world!"
+      - name: Print Workflow-Level Variable
+        run: echo "Workflow-level variable value: ${{ env.MY_WORKFLOW_VARIABLE }}"
+
