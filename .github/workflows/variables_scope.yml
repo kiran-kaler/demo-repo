@@ -17,5 +17,5 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Print Workflow-Level Variable
-        run: echo "Workflow-level variable value: ${{ env.MY_WORKFLOW_VARIABLE }}"
+        run: echo "Workflow-level variable value: ${{ env.MY_WORKFLOW_VARIABLE}}"
 
