@@ -1,18 +1,28 @@
-name: My Workflow
+name: my_workflow.yml
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Run a script
-      run: |
-        echo "Hello, GitHub Actions!"
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 14
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run unit tests
+      run: npm my_workflow
+
+    - name: Archive my_workflow reports
+      uses: actions/upload-artifact@v2
+      with:
+        name: my_workflow
+        path: https://github.com/kiran-kaler/demo-repo/edit/main/.github/my_workflow.yml
