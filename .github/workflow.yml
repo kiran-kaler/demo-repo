@@ -19,9 +19,9 @@ jobs:
 
     - name: Run Build Script
       run: |
-        if [ "$RUNNER_OS" == "Windows" ]; then
+        if [ "$RUNNER_OS" == "Operating System" ]; then
           # Windows-specific commands
-          echo "Running on Windows"
+          echo "Running on Operating System"
         else
           # Linux-specific commands
           echo "Running on Linux"
